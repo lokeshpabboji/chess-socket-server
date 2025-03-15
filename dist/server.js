@@ -7,12 +7,12 @@ const express_1 = __importDefault(require("express"));
 const socket_io_1 = require("socket.io");
 const http_1 = require("http");
 const chess_js_1 = require("chess.js");
-const port = 4000;
+const port = process.env.PORT;
 const app = (0, express_1.default)();
 const server = (0, http_1.createServer)(app);
 const io = new socket_io_1.Server(server, {
     cors: {
-        origin: "*",
+        origin: "https://tactix-two.vercel.app",
         methods: ["GET", "POST"],
         credentials: true,
     }
