@@ -9,7 +9,7 @@ const app = express();
 const server = createServer(app)
 const io = new Server(server, {
     cors : {
-        origin : "https://tactix-two.vercel.app/",
+        origin : "https://tactix-two.vercel.app",
         methods : ["GET", "POST"],
         credentials : true,
     }
