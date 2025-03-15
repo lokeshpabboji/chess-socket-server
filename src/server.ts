@@ -9,7 +9,7 @@ const app = express();
 const server = createServer(app)
 const io = new Server(server, {
     cors : {
-        origin : "*",
+        origin : "https://tactix-two.vercel.app/",
         methods : ["GET", "POST"],
         credentials : true,
     }
@@ -95,6 +95,6 @@ io.on("connection", (socket) => {
 
 })
 
-server.listen(port,'0.0.0.0', () => {
+server.listen(port, () => {
     console.log("server is listening on port 4000")
 })
