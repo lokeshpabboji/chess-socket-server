@@ -3,7 +3,7 @@ import { Server } from "socket.io";
 import { createServer } from "http";
 import { Chess } from "chess.js";
 
-const port = process.env.PORT;
+const port = 3000;
 
 const app = express();
 const server = createServer(app)
@@ -13,6 +13,10 @@ const io = new Server(server, {
         methods : ["GET", "POST"],
         credentials : true,
     }
+})
+
+app.get("/", (req, res) => {
+    res.send("hello from chess-socket server")
 })
 
 const games : {[roomId : string] : {game : Chess, players : string[]}} = {}
@@ -96,5 +100,5 @@ io.on("connection", (socket) => {
 })
 
 server.listen(port, () => {
-    console.log("server is listening on port 4000")
+    console.log("server is listening on port", port)
 })

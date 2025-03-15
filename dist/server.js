@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const socket_io_1 = require("socket.io");
 const http_1 = require("http");
 const chess_js_1 = require("chess.js");
-const port = process.env.PORT;
+const port = 3000;
 const app = (0, express_1.default)();
 const server = (0, http_1.createServer)(app);
 const io = new socket_io_1.Server(server, {
@@ -16,6 +16,9 @@ const io = new socket_io_1.Server(server, {
         methods: ["GET", "POST"],
         credentials: true,
     }
+});
+app.get("/", (req, res) => {
+    res.send("hello from chess-socket server");
 });
 const games = {};
 io.on("connection", (socket) => {
@@ -89,5 +92,5 @@ io.on("connection", (socket) => {
     });
 });
 server.listen(port, () => {
-    console.log("server is listening on port 4000");
+    console.log("server is listening on port", port);
 });
