@@ -2,9 +2,6 @@
   "name": "chess-socket-server",
   "version": "1.0.0",
   "main": "dist/server.js",
-  "engines": {
-    "node" : "18.x"
-  },
   "scripts": {
     "dev": "nodemon src/server.ts",
     "build": "tsc -b",
