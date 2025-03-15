@@ -3,7 +3,7 @@ import { Server } from "socket.io";
 import { createServer } from "http";
 import { Chess } from "chess.js";
 
-const port = 4000;
+const port = process.env.PORT;
 
 const app = express();
 const server = createServer(app)
